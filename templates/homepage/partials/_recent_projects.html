@@ -15,50 +15,20 @@
                                 <a href="#">
                                     <span class="project-item-category">{{ project.title }}</span>
                                     <h2 class="project-item-title">
-                                        Building Refinery
+                                        {% for type in project.type.all %}
+                                            {% if forloop.counter is not 1 %}
+                                                , {{ type }}
+                                            {% else %}
+                                                {{ type }}
+                                            {% endif %}
+                                        {% endfor %}
+
                                     </h2>
                                 </a>
                             </div>
-                            <img src="images/works_1.jpg" alt="Image" class="img-fluid">
+                            <img src="{{ project.image.url }}" alt="Image" class="img-fluid">
                         </div>
                     {% endfor %}
-
-
-                    <div class="project-item">
-                        <div class="project-item-contents">
-                            <a href="#">
-                                <span class="project-item-category">Factory</span>
-                                <h2 class="project-item-title">
-                                    Building Refinery
-                                </h2>
-                            </a>
-                        </div>
-                        <img src="images/works_2.jpg" alt="Image" class="img-fluid">
-                    </div>
-                    <div class="project-item">
-                        <div class="project-item-contents">
-                            <a href="#">
-                                <span class="project-item-category">Factory</span>
-                                <h2 class="project-item-title">
-                                    Building Refinery
-                                </h2>
-                            </a>
-                        </div>
-                        <img src="images/works_3.jpg" alt="Image" class="img-fluid">
-                    </div>
-                    <div class="project-item">
-                        <div class="project-item-contents">
-                            <a href="#">
-                                <span class="project-item-category">Factory</span>
-                                <h2 class="project-item-title">
-                                    Building Refinery
-                                </h2>
-                            </a>
-                        </div>
-                        <img src="images/works_4.jpg" alt="Image" class="img-fluid">
-                    </div>
-
-
                 </div>
             </div>
 

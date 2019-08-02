@@ -104,6 +104,22 @@ class RecentProjects(models.Model):
         return self.title
 
 
+class Footer(models.Model):
+    menu_1_title = models.CharField(max_length=25)
+    menu_1_links = models.ManyToManyField('FooterLink', related_name='menu_1_links')
+
+    menu_2_title = models.CharField(max_length=25)
+    menu_2_links = models.ManyToManyField('FooterLink', related_name='menu_2_links')
+
+    menu_3_title = models.CharField(max_length=25)
+    menu_3_links = models.ManyToManyField('FooterLink', related_name='menu_3_links')
+
+
+class FooterLink(models.Model):
+    title = models.CharField(max_length=50)
+    link = models.CharField(max_length=100)
+
+
 class FlatIconsClassName(models.Model):
     class_name = models.CharField(max_length=50)
     name = models.CharField(max_length=50)
