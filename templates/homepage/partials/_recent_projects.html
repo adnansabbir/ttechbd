@@ -1,61 +1,67 @@
 <div class="site-section block-3">
-    <div class="container">
+    {% for recent_project in recent_projects %}
+        <div class="container">
 
-        <div class="mb-5">
-            <h3 class="section-subtitle">Our Projects</h3>
-            <h2 class="section-title mb-4">Explore Our <strong>Recent Projects</strong></h2>
-        </div>
-
-        <div class="projects-carousel-wrap">
-            <div class="owl-carousel owl-slide-3">
-                <div class="project-item">
-                    <div class="project-item-contents">
-                        <a href="#">
-                            <span class="project-item-category">Factory</span>
-                            <h2 class="project-item-title">
-                                Building Refinery
-                            </h2>
-                        </a>
-                    </div>
-                    <img src="images/works_1.jpg" alt="Image" class="img-fluid">
-                </div>
-                <div class="project-item">
-                    <div class="project-item-contents">
-                        <a href="#">
-                            <span class="project-item-category">Factory</span>
-                            <h2 class="project-item-title">
-                                Building Refinery
-                            </h2>
-                        </a>
-                    </div>
-                    <img src="images/works_2.jpg" alt="Image" class="img-fluid">
-                </div>
-                <div class="project-item">
-                    <div class="project-item-contents">
-                        <a href="#">
-                            <span class="project-item-category">Factory</span>
-                            <h2 class="project-item-title">
-                                Building Refinery
-                            </h2>
-                        </a>
-                    </div>
-                    <img src="images/works_3.jpg" alt="Image" class="img-fluid">
-                </div>
-                <div class="project-item">
-                    <div class="project-item-contents">
-                        <a href="#">
-                            <span class="project-item-category">Factory</span>
-                            <h2 class="project-item-title">
-                                Building Refinery
-                            </h2>
-                        </a>
-                    </div>
-                    <img src="images/works_4.jpg" alt="Image" class="img-fluid">
-                </div>
-
-
+            <div class="mb-5">
+                <h3 class="section-subtitle">{{ recent_project.title }}</h3>
+                <h2 class="section-title mb-4">{{ recent_project.sub_title }}</h2>
             </div>
-        </div>
 
-    </div>
+            <div class="projects-carousel-wrap">
+                <div class="owl-carousel owl-slide-3">
+                    {% for project in recent_project.projects.all %}
+                        <div class="project-item">
+                            <div class="project-item-contents">
+                                <a href="#">
+                                    <span class="project-item-category">{{ project.title }}</span>
+                                    <h2 class="project-item-title">
+                                        Building Refinery
+                                    </h2>
+                                </a>
+                            </div>
+                            <img src="images/works_1.jpg" alt="Image" class="img-fluid">
+                        </div>
+                    {% endfor %}
+
+
+                    <div class="project-item">
+                        <div class="project-item-contents">
+                            <a href="#">
+                                <span class="project-item-category">Factory</span>
+                                <h2 class="project-item-title">
+                                    Building Refinery
+                                </h2>
+                            </a>
+                        </div>
+                        <img src="images/works_2.jpg" alt="Image" class="img-fluid">
+                    </div>
+                    <div class="project-item">
+                        <div class="project-item-contents">
+                            <a href="#">
+                                <span class="project-item-category">Factory</span>
+                                <h2 class="project-item-title">
+                                    Building Refinery
+                                </h2>
+                            </a>
+                        </div>
+                        <img src="images/works_3.jpg" alt="Image" class="img-fluid">
+                    </div>
+                    <div class="project-item">
+                        <div class="project-item-contents">
+                            <a href="#">
+                                <span class="project-item-category">Factory</span>
+                                <h2 class="project-item-title">
+                                    Building Refinery
+                                </h2>
+                            </a>
+                        </div>
+                        <img src="images/works_4.jpg" alt="Image" class="img-fluid">
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    {% endfor %}
 </div>
