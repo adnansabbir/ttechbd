@@ -1,5 +1,6 @@
 from django.core.exceptions import ValidationError
 from django.db import models
+from apps.projects.models import Project
 
 
 class Company(models.Model):
@@ -89,6 +90,15 @@ class WhyChooseUsCards(models.Model):
     icon = models.ForeignKey('FlatIconsClassName', on_delete=models.SET_NULL, null=True, blank=False)
     title = models.CharField(max_length=50)
     sub_title = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.title
+
+
+class RecentProjects(models.Model):
+    title = models.CharField(max_length=50)
+    sub_title = models.CharField(max_length=100)
+    projects = models.ManyToManyField(Project)
 
     def __str__(self):
         return self.title
