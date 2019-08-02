@@ -1,0 +1,14 @@
+<div class="hero-slide owl-carousel site-blocks-cover">
+    {% for slider in sliders %}
+        <div class="intro-section" style="background-image: url('{{ slider.bg.url }}');">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12 mx-auto text-center text-capitalize" data-aos="fade-up">
+                        <h1>{{ slider.title }}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+<!-- END slider -->
