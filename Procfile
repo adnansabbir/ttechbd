@@ -1,1 +1,1 @@
-web: gunicorn ttechbd.wsgi --log-file
+web: gunicorn ttechbd.wsgi
