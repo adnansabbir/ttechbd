@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'g&l0*o5+z2m&x$_a@r(@humy3jz1wb
 # DEBUG = False
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['djangottechbd.herokuapp.com']
+ALLOWED_HOSTS = ['djangottechbd.herokuapp.com', 'localhost']
 
 # Application definition
 
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_cleanup',
     'apps.homepage',
     'apps.projects',
 ]
