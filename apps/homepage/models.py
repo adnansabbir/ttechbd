@@ -114,10 +114,19 @@ class Footer(models.Model):
     menu_3_title = models.CharField(max_length=25)
     menu_3_links = models.ManyToManyField('FooterLink', related_name='menu_3_links')
 
+    # Allow only one instance
+    def save(self, *args, **kwargs):
+        if Footer.objects.exists() and not self.pk:
+            raise ValidationError("Please edit the existing Footer, you cannot add more than one footer")
+        return super(Footer, self).save(*args, **kwargs)
+
 
 class FooterLink(models.Model):
     title = models.CharField(max_length=50)
     link = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.title
 
 
 class FlatIconsClassName(models.Model):

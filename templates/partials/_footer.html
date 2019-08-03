@@ -2,38 +2,32 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
-                <p class="mb-4"><img src="images/logo2.png" alt="Image" class="img-fluid"></p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae nemo minima qui dolor, iusto
-                    iure.</p>
+                <p class="mb-4"><img src="{{ company.logo_light.url }}" alt="Image" class="img-fluid"></p>
+                <p>{{ company.description }}</p>
                 <p><a href="#">Learn More</a></p>
             </div>
             <div class="col-lg-3">
-                <h3 class="footer-heading"><span>Our Company</span></h3>
+                <h3 class="footer-heading"><span>{{ footer.menu_1_title }}</span></h3>
                 <ul class="list-unstyled">
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">News</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Our Team</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Projects</a></li>
+                    {% for link in footer.menu_1_links.all %}
+                        <li><a href="{{ link.link }}">{{ link.title }}</a></li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="col-lg-3">
-                <h3 class="footer-heading"><span>Our Services</span></h3>
+                <h3 class="footer-heading"><span>{{ footer.menu_2_title }}</span></h3>
                 <ul class="list-unstyled">
-                    <li><a href="#">Industrial</a></li>
-                    <li><a href="#">Construction</a></li>
-                    <li><a href="#">Remodeling</a></li>
+                    {% for link in footer.menu_2_links.all %}
+                        <li><a href="{{ link.link }}">{{ link.title }}</a></li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="col-lg-3">
-                <h3 class="footer-heading"><span>Contact</span></h3>
+                <h3 class="footer-heading"><span>{{ footer.menu_3_title }}</span></h3>
                 <ul class="list-unstyled">
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Support Community</a></li>
-                    <li><a href="#">Press</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Our Partners</a></li>
+                    {% for link in footer.menu_3_links.all %}
+                        <li><a href="{{ link.link }}">{{ link.title }}</a></li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>
