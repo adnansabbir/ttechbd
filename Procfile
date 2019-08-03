@@ -1,1 +1,1 @@
-web: gunicorm --pythonpath ttechbd wsgi
+web: gunicorn ttechbd.wsgi --log-file
