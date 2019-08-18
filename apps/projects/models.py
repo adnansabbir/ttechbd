@@ -39,7 +39,7 @@ class Link(models.Model):
 
 
 class Site(models.Model):
-    icon = models.ImageField(upload_to='Projects/Sites/icons')
+    icon = models.ImageField(upload_to='Projects/Sites/icons', null=True, blank=True)
     name = models.CharField(max_length=50)
     primary_color = models.CharField(max_length=7)
     secondary_color = models.CharField(max_length=7)

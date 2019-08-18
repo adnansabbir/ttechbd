@@ -3,6 +3,11 @@ from django.db import models
 from apps.projects.models import Project
 
 
+class CommonModelClasses(models.Model):
+    """A model class that will be inherited by model classes to share common fields"""
+    visibility = models.BooleanField(default=True)
+
+
 class Company(models.Model):
     company_name = models.CharField(max_length=100)
     title = models.CharField(max_length=50)
