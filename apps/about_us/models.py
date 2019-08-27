@@ -15,6 +15,9 @@ class AboutUsPage(CommonModelClasses):
             raise ValidationError("Please edit the existing Company, you cannot add more than one company")
         return super(AboutUsPage, self).save(*args, **kwargs)
 
+    def __str__(self):
+        return self.title
+
 
 class OurTeamSection(CommonModelClasses):
     """Class containing team member list"""
@@ -27,18 +30,22 @@ class OurTeamSection(CommonModelClasses):
 
 class TeamMember(CommonModelClasses):
     """Team member descriptions"""
-    section = models.ForeignKey(OurTeamSection, on_delete=models.SET_NULL, null=True)
+    section = models.ForeignKey(OurTeamSection, on_delete=models.SET_NULL, null=True, related_name='members')
     name = models.CharField(max_length=80)
     profile_picture = models.ImageField(upload_to='Site/AboutUs/Team/')
     primary_role = models.ForeignKey('TeamMemberRole', on_delete=models.SET_NULL, null=True,
                                      related_name='primary_role')
-    other_roles = models.ManyToManyField('TeamMemberRole', related_name='other_roles')
+    other_roles = models.ManyToManyField('TeamMemberRole', related_name='other_roles', blank=True)
+    order = models.IntegerField(default=1000)
+
+    class Meta:
+        ordering = ('order',)
 
     def __str__(self):
         return self.name
 
 
-class TeamMemberRole(CommonModelClasses):
+class TeamMemberRole(models.Model):
     """Roles assigned to team members.
     Can have multiple roles"""
     role_name = models.CharField(max_length=100)
@@ -47,10 +54,13 @@ class TeamMemberRole(CommonModelClasses):
         return self.role_name
 
 
-class SocialMediaLink(CommonModelClasses):
+class SocialMediaLink(models.Model):
     member = models.ForeignKey(TeamMember, on_delete=models.CASCADE, related_name='links')
     site = models.ForeignKey(Site, on_delete=models.SET_NULL, null=True)
     link = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.member
+        return '{} - {}'.format(self.member.name, self.site.name)
+
+
+

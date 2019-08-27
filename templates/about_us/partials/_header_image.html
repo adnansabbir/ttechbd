@@ -1,0 +1,17 @@
+{% if about_us %}
+    <div class="intro-section site-blocks-cover innerpage"
+         style="background-image: url('{{ about_us.background_image.url }}');">
+        <div class="container">
+            <div class="row align-items-center text-center border">
+                <div class="col-lg-12 mt-5" data-aos="fade-up">
+                    <h1>{{ about_us.title }}</h1>
+                    <p class="text-white text-center">
+                        <a href="{% url 'homepage' %}">Home</a>
+                        <span class="mx-2">/</span>
+                        <span>About</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}

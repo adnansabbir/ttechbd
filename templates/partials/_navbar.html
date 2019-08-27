@@ -6,11 +6,11 @@
             <div class="mr-auto">
                 <nav class="site-navigation position-relative text-right" role="navigation">
                     <ul class="site-menu main-menu js-clone-nav mr-auto d-none pl-0 d-lg-block">
-                        <li class="active">
+                        <li class="{% if request.resolver_match.url_name == 'homepage' %}active{% endif %}">
                             <a href="{% url 'homepage' %}" class="nav-link text-left">Home</a>
                         </li>
-                        <li>
-                            <a href="#" class="nav-link text-left">About Us</a>
+                        <li class="{% if request.resolver_match.url_name == 'about_us' %}active{% endif %}">
+                            <a href="{% url 'about_us' %}" class="nav-link text-left">About Us</a>
                         </li>
 {#                        <li>#}
 {#                            <a href="works.html" class="nav-link text-left">Our Projects</a>#}
