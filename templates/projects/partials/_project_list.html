@@ -1,0 +1,21 @@
+{% if projects %}
+    <div class="site-section">
+        <div class="container">
+            <div class="row">
+                {% for project in projects %}
+                    <div class="col-md-6 col-lg-3 mb-4">
+                        <div class="project-item">
+                            <div class="project-item-contents">
+                                <a href="#">
+                                    <span class="project-item-category">{{ project.type.all | join:", " }}</span>
+                                    <h2 class="project-item-title">{{ project.title }}</h2>
+                                </a>
+                            </div>
+                            <img src="{{ project.image.url }}" alt="{{ project.title }}" class="img-fluid">
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endif %}
