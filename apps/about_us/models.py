@@ -8,6 +8,7 @@ class AboutUsPage(CommonModelClasses):
     """Class to contain basic description of the about us field"""
     title = models.CharField(default='About Us', max_length=20)
     background_image = models.ImageField(upload_to='Site/AboutUs/')
+    description = models.TextField(null=True, max_length=2000)
 
     # Allow only one instance
     def save(self, *args, **kwargs):
