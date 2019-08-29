@@ -13,7 +13,7 @@ class AboutUsPage(CommonModelClasses):
     # Allow only one instance
     def save(self, *args, **kwargs):
         if AboutUsPage.objects.exists() and not self.pk:
-            raise ValidationError("Please edit the existing Company, you cannot add more than one company")
+            raise ValidationError("Please edit the existing instance, you cannot add more than one")
         return super(AboutUsPage, self).save(*args, **kwargs)
 
     def __str__(self):
