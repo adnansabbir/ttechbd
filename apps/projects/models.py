@@ -1,4 +1,21 @@
+from django.core.exceptions import ValidationError
 from django.db import models
+from apps.homepage.models import CommonModelClasses
+
+
+class ProjectPage(CommonModelClasses):
+    """Class to contain basic description of the project page"""
+    title = models.CharField(default='Our Projects', max_length=20)
+    background_image = models.ImageField(upload_to='Site/ProjectPage/')
+
+    # Allow only one instance
+    def save(self, *args, **kwargs):
+        if ProjectPage.objects.exists() and not self.pk:
+            raise ValidationError("Please edit the existing instance, you cannot add more than one")
+        return super(ProjectPage, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return self.title
 
 
 class Project(models.Model):
