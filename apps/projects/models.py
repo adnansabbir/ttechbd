@@ -1,9 +1,10 @@
-from django.core.exceptions import ValidationError
 from django.db import models
-from apps.homepage.models import CommonModelClasses
+from django.core.exceptions import ValidationError
+
+# from apps.homepage.models import CommonModelClasses
 
 
-class ProjectPage(CommonModelClasses):
+class ProjectPage(models.Model):
     """Class to contain basic description of the project page"""
     title = models.CharField(default='Our Projects', max_length=20)
     background_image = models.ImageField(upload_to='Site/ProjectPage/')
