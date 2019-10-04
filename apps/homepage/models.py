@@ -55,11 +55,12 @@ class Address(models.Model):
 
 class SliderImages(models.Model):
     title = models.CharField(max_length=100)
+    show_title = models.BooleanField(default=True)
     sub_title = models.CharField(max_length=200, null=True, blank=True)
     bg = models.ImageField(upload_to='Site/Homepage/SliderImages/', blank=False)
 
     def __str__(self):
-        return self.title
+        return self.title or ''
 
 
 class WhatWeDoSection(models.Model):

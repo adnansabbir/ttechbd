@@ -20,6 +20,7 @@ class ProjectPage(models.Model):
 
 
 class Project(models.Model):
+    background_image = models.ImageField(upload_to='Projects/MainImages/BackgroundImages', null=True, blank=True)
     title = models.CharField(max_length=100)
     description = models.TextField(max_length=1000)
     type = models.ManyToManyField('ProjectType')
