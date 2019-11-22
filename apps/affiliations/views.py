@@ -1,9 +1,10 @@
 from django.shortcuts import render
+from .models import AffiliationPage
 
 
 def affiliation_list(request):
     data = {
-        # 'project_page': ProjectPage.objects.first(),
+        'affiliation_page': AffiliationPage.objects.first(),
         # 'projects': Project.objects.all()
     }
     return render(request, 'affiliations/affiliation_list.html', data)
