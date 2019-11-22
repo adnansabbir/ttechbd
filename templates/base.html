@@ -23,6 +23,8 @@
     <link rel="stylesheet" href={% static "css/bootstrap-datepicker.css" %}>
 
     <link rel="stylesheet" href={% static "fonts/flaticon/font/flaticon.css" %}>
+    <link rel="stylesheet" href={% static "fonts/icofont/icofont.min.css" %}>
+    <script src="https://kit.fontawesome.com/89a501416d.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href={% static "css/aos.css" %}>
     <link href="{% static "css/jquery.mb.YTPlayer.min.css" %}" media="all" rel="stylesheet" type="text/css">
@@ -51,21 +53,20 @@
         {% include 'partials/_header_top.html' %}
         {% include 'partials/_navbar.html' %}
     </div>
-    
+
     {% block content %}
-    
+
     {% endblock %}
 
 
 
 
-{% include 'partials/_footer.html' %}
+    {% include 'partials/_footer.html' %}
 
 
 </div>
 <!-- .site-wrap -->
 {% include 'partials/_loader.html' %}
-
 
 
 <script src={% static "js/jquery-3.3.1.min.js" %}></script>

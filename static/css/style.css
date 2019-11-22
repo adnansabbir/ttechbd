@@ -564,6 +564,7 @@ h1, h2, h3, h4, h5,
 /* Blocks */
 .intro-section {
   background-size: cover;
+  background-position: center;
   position: relative; }
   .intro-section, .intro-section .container .row {
     height: 100vh;
@@ -576,12 +577,14 @@ h1, h2, h3, h4, h5,
     position: absolute;
     height: 100%;
     width: 100%;
-    background: #222;
     opacity: .3;
     border-bottom-right-radius: 0px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat; }
+
+  .intro-section.dark-overlay:before {
+    background: #222;}
     @media (max-width: 991.98px) {
       .intro-section:before {
         width: 100%; } }

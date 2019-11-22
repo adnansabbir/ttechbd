@@ -4,10 +4,10 @@
             <div class="col-lg-3">
                 <p class="mb-4"><img src="{{ company.logo_light.url }}" alt="Image" class="img-fluid"></p>
                 <p>{{ company.description }}</p>
-                <p><a href="#">Learn More</a></p>
+                <p><a href="/aboutus">Learn More</a></p>
             </div>
             <div class="col-lg-3">
-                <h3 class="footer-heading"><span>{{ footer.menu_1_title }}</span></h3>
+                <h3 class="footer-heading"><span>{{ footer.menu_1_title | default_if_none:'' }}</span></h3>
                 <ul class="list-unstyled">
                     {% for link in footer.menu_1_links.all %}
                         <li><a href="{{ link.link }}">{{ link.title }}</a></li>
@@ -15,7 +15,7 @@
                 </ul>
             </div>
             <div class="col-lg-3">
-                <h3 class="footer-heading"><span>{{ footer.menu_2_title }}</span></h3>
+                <h3 class="footer-heading"><span>{{ footer.menu_2_title | default_if_none:'' }}</span></h3>
                 <ul class="list-unstyled">
                     {% for link in footer.menu_2_links.all %}
                         <li><a href="{{ link.link }}">{{ link.title }}</a></li>
@@ -23,7 +23,7 @@
                 </ul>
             </div>
             <div class="col-lg-3">
-                <h3 class="footer-heading"><span>{{ footer.menu_3_title }}</span></h3>
+                <h3 class="footer-heading"><span>{{ footer.menu_3_title | default_if_none:'' }}</span></h3>
                 <ul class="list-unstyled">
                     {% for link in footer.menu_3_links.all %}
                         <li><a href="{{ link.link }}">{{ link.title }}</a></li>

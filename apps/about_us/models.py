@@ -33,6 +33,7 @@ class TeamMember(CommonModelClasses):
     """Team member descriptions"""
     section = models.ForeignKey(OurTeamSection, on_delete=models.SET_NULL, null=True, related_name='members')
     name = models.CharField(max_length=80)
+    bio = models.TextField(max_length=1500, null=True, blank=True)
     profile_picture = models.ImageField(upload_to='Site/AboutUs/Team/')
     primary_role = models.ForeignKey('TeamMemberRole', on_delete=models.SET_NULL, null=True,
                                      related_name='primary_role')
@@ -62,6 +63,3 @@ class SocialMediaLink(models.Model):
 
     def __str__(self):
         return '{} - {}'.format(self.member.name, self.site.name)
-
-
-

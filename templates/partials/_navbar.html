@@ -13,15 +13,21 @@
                             <a href="{% url 'about_us' %}" class="nav-link text-left">About Us</a>
                         </li>
                         <li class="{% if request.resolver_match.url_name == 'project_list' %}active{% endif %}">
-                            <a href="{% url 'project_list' %}" class="nav-link text-left">Our Projects</a>
+                            <a href="{% url 'project_list' %}" class="nav-link text-left">Products</a>
                         </li>
-{#                        <li>#}
-{#                            <a href="testimonials.html" class="nav-link text-left">Testimonials</a>#}
-{#                        </li>#}
-{#                        <li><a href="blog.html" class="nav-link text-left">Blog</a></li>#}
-{#                        <li>#}
-{#                            <a href="contact.html" class="nav-link text-left">Contact</a>#}
-{#                        </li>#}
+                        <li class="{% if request.resolver_match.url_name == 'affiliation_list' %}active{% endif %}">
+                            <a href="{% url 'affiliation_list' %}" class="nav-link text-left">Affiliations</a>
+                        </li>
+                        <li class="{% if request.resolver_match.url_name == 'project_list' %}active{% endif %}">
+                            <a href="#" class="nav-link text-left">Gallery</a>
+                        </li>
+                        {#                        <li>#}
+                        {#                            <a href="testimonials.html" class="nav-link text-left">Testimonials</a>#}
+                        {#                        </li>#}
+                        {#                        <li><a href="blog.html" class="nav-link text-left">Blog</a></li>#}
+                        {#                        <li>#}
+                        {#                            <a href="contact.html" class="nav-link text-left">Contact</a>#}
+                        {#                        </li>#}
                     </ul>
                     </ul>
                 </nav>

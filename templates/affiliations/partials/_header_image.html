@@ -1,14 +1,14 @@
-{% if project_page %}
+{% if affiliation_page %}
     <div class="intro-section site-blocks-cover innerpage"
-         style="background-image: url('{{ project_page.background_image.url }}');">
+         style="background-image: url('{{ affiliation_page.background_image.url }}');">
         <div class="container">
             <div class="row align-items-center text-center">
                 <div class="col-lg-12 mt-5" data-aos="fade-up">
-                    <h1>{{ project_page.title }}</h1>
+                    <h1>{{ affiliation_page.title }}</h1>
                     <p class="text-white text-center">
                         <a href="{% url 'homepage' %}">Home</a>
                         <span class="mx-2">/</span>
-                        <span>{{ project_page.title }}</span>
+                        <span>{{ affiliation_page.title }}</span>
                     </p>
                 </div>
             </div>

@@ -58,6 +58,10 @@ class SliderImages(models.Model):
     show_title = models.BooleanField(default=True)
     sub_title = models.CharField(max_length=200, null=True, blank=True)
     bg = models.ImageField(upload_to='Site/Homepage/SliderImages/', blank=False)
+    order = models.IntegerField(default=1000)
+
+    class Meta:
+        ordering = ('order', 'title')
 
     def __str__(self):
         return self.title or ''
@@ -73,9 +77,13 @@ class WhatWeDoSection(models.Model):
 
 class WhatWeDoCards(models.Model):
     what_we_do_section = models.ForeignKey(WhatWeDoSection, on_delete=models.CASCADE, related_name='cards')
-    icon = models.ForeignKey('FlatIconsClassName', on_delete=models.SET_NULL, null=True, blank=False)
-    title = models.CharField(max_length=50)
-    sub_title = models.CharField(max_length=100)
+    icon = models.ForeignKey('Icons', on_delete=models.SET_NULL, null=True, blank=False)
+    title = models.CharField(max_length=100)
+    sub_title = models.CharField(max_length=100, null=True, blank=True)
+    order = models.IntegerField(default=1000)
+
+    class Meta:
+        ordering = ('order', 'title')
 
     def __str__(self):
         return self.title
@@ -93,9 +101,13 @@ class WhyChooseUsSection(models.Model):
 
 class WhyChooseUsCards(models.Model):
     why_choose_us_section = models.ForeignKey(WhyChooseUsSection, on_delete=models.CASCADE, related_name='cards')
-    icon = models.ForeignKey('FlatIconsClassName', on_delete=models.SET_NULL, null=True, blank=False)
+    icon = models.ForeignKey('Icons', on_delete=models.SET_NULL, null=True, blank=False)
     title = models.CharField(max_length=50)
-    sub_title = models.CharField(max_length=100)
+    sub_title = models.CharField(max_length=100, null=True, blank=True)
+    order = models.IntegerField(default=1000)
+
+    class Meta:
+        ordering = ('order', 'title')
 
     def __str__(self):
         return self.title
@@ -103,22 +115,26 @@ class WhyChooseUsCards(models.Model):
 
 class RecentProjects(models.Model):
     title = models.CharField(max_length=50)
-    sub_title = models.CharField(max_length=100)
+    sub_title = models.CharField(max_length=100, null=True, blank=True)
     projects = models.ManyToManyField(Project)
+    order = models.IntegerField(default=1000)
+
+    class Meta:
+        ordering = ('order', 'title')
 
     def __str__(self):
         return self.title
 
 
 class Footer(models.Model):
-    menu_1_title = models.CharField(max_length=25)
-    menu_1_links = models.ManyToManyField('FooterLink', related_name='menu_1_links')
+    menu_1_title = models.CharField(max_length=25, null=True, blank=True)
+    menu_1_links = models.ManyToManyField('FooterLink', related_name='menu_1_links', null=True, blank=True)
 
-    menu_2_title = models.CharField(max_length=25)
-    menu_2_links = models.ManyToManyField('FooterLink', related_name='menu_2_links')
+    menu_2_title = models.CharField(max_length=25, null=True, blank=True)
+    menu_2_links = models.ManyToManyField('FooterLink', related_name='menu_2_links', null=True, blank=True)
 
-    menu_3_title = models.CharField(max_length=25)
-    menu_3_links = models.ManyToManyField('FooterLink', related_name='menu_3_links')
+    menu_3_title = models.CharField(max_length=25, null=True, blank=True)
+    menu_3_links = models.ManyToManyField('FooterLink', related_name='menu_3_links', null=True, blank=True)
 
     # Allow only one instance
     def save(self, *args, **kwargs):
@@ -135,9 +151,18 @@ class FooterLink(models.Model):
         return self.title
 
 
-class FlatIconsClassName(models.Model):
+class Icons(models.Model):
     class_name = models.CharField(max_length=50)
     name = models.CharField(max_length=50)
+    icon_type = models.ForeignKey('IconHTMLTag', on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.name
+
+
+class IconHTMLTag(models.Model):
+    icon_name = models.CharField(max_length=50)
+    html_tag = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.icon_name

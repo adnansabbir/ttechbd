@@ -1,3 +1,4 @@
+{% load icon_class_changer %}
 {% for section in what_we_do_sections %}
     <div class="site-section services-1-wrap">
 
@@ -14,11 +15,11 @@
                         <div class="service-1">
                             <span class="number">{{ forloop.counter }}</span>
                             <div class="service-1-icon">
-                                <span class="{{ card.icon.class_name }}"></span>
+                                <span>{{ card.icon.icon_type.html_tag | translate_icon:card.icon.class_name | safe }}</span>
                             </div>
                             <div class="service-1-content">
-                                <h3 class="service-heading"></h3>
-                                <p>Gravida sodales condimentum pellen tesq accumsan orci quam sagittis sapie</p>
+                                <h3 class="service-heading">{{ card.title | safe }}</h3>
+                                <p>{{ card.sub_title | default_if_none:'' }}</p>
                             </div>
                         </div>
                     </div>

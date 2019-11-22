@@ -5,7 +5,7 @@
 
             <div class="mb-5">
                 <h3 class="section-subtitle">{{ recent_project.title }}</h3>
-                <h2 class="section-title mb-4">{{ recent_project.sub_title }}</h2>
+                <h2 class="section-title mb-4">{{ recent_project.sub_title | default_if_none:'' }}</h2>
             </div>
 
             <div class="projects-carousel-wrap">
@@ -13,7 +13,7 @@
                     {% for project in recent_project.projects.all %}
                         <div class="project-item">
                             <div class="project-item-contents">
-                                <a href="#">
+                                <a href="{% url 'project_single' project_id=project.id %}">
                                     <span class="project-item-category">{{ project.title }}</span>
                                     <h2 class="project-item-title">
                                         {% for type in project.type.all %}
