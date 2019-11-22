@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    {% if project_page %}
+    {% if affiliation_page %}
         <div class="intro-section site-blocks-cover innerpage"
              style="background-image:
                      {% if project.background_image %}
                          url('{{ project.background_image.url }}')
                      {% else %}
-                         url('{{ project_page.background_image.url }}')
+                         url('{{ affiliation_page.background_image.url }}')
                      {% endif %}">
             <div class="container">
                 <div class="row align-items-center text-center border">
@@ -17,7 +17,7 @@
                         <p class="text-white text-center">
                             <a href="{% url 'homepage' %}">Home</a>
                             <span class="mx-2">/</span>
-                            <a href="{% url 'project_list' %}">Projects</a>
+                            <a href="{% url 'affiliation_list' %}">Affiliations</a>
                             <span class="mx-2">/</span>
                             <span class="mx-2">{{ project.title }}</span>
                         </p>
