@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'apps.projects',
     'apps.about_us',
     'apps.affiliations',
+    'apps.gallery',
     'apps.custom_templates_filters'
 ]
 

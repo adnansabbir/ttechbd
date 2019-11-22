@@ -18,8 +18,8 @@
                         <li class="{% if request.resolver_match.url_name == 'affiliation_list' %}active{% endif %}">
                             <a href="{% url 'affiliation_list' %}" class="nav-link text-left">Affiliations</a>
                         </li>
-                        <li class="{% if request.resolver_match.url_name == 'project_list' %}active{% endif %}">
-                            <a href="#" class="nav-link text-left">Gallery</a>
+                        <li class="{% if request.resolver_match.url_name == 'gallery' %}active{% endif %}">
+                            <a href="{% url 'gallery' %}" class="nav-link text-left">Gallery</a>
                         </li>
                         {#                        <li>#}
                         {#                            <a href="testimonials.html" class="nav-link text-left">Testimonials</a>#}

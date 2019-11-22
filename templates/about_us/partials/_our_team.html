@@ -10,10 +10,10 @@
 
             <div class="row">
                 {% for member in team_section.members.all %}
-                    <div class="col-lg-3 col-md-6 mb-lg-0" data-toggle="modal" data-target="#PersonDetails{{ member.id }}Modal">
+                    <div class="col-lg-3 col-md-6 mb-lg-0">
                         <div class="person">
                             <figure>
-                                <img src="{{ member.profile_picture.url }}" alt="Image" class="img-fluid">
+                                <img src="{{ member.profile_picture.url }}" alt="Image" class="img-fluid" data-toggle="modal" data-target="#PersonDetails{{ member.id }}Modal">
                                 <div class="social">
                                     {% for link in member.links.all %}
                                         <a href="{{ link.link }}" target="_blank"><span

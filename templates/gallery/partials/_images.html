@@ -1,0 +1,52 @@
+<div class="container">
+    <h1>{{ album.title }}</h1>
+    <div class="row">
+        <div class="row" style="margin-top: 20px">
+            {% for image in images %}
+                <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                    <a class="thumbnail" href="#" data-image-id="" data-toggle="modal"
+                       data-target="#Image{{ image.id }}Modal"
+                       data-image="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+                        <img class="img-thumbnail"
+                             src="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                             alt="Another alt text">
+                    </a>
+                </div>
+
+                <div class="modal fade" id="Image{{ image.id }}Modal" tabindex="-1" role="dialog"
+                     aria-labelledby="Image{{ image.id }}Modal" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">{{ album.title }}</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-12 center-block">
+                                        <img src="{{ image.image_url }}" alt="Image"
+                                             class="img-fluid">
+                                    </div>
+
+                                    {% if image.title %}
+                                        <div class="col-12 mt-2">
+                                            <h3>{{ image.title }}</h3>
+                                        </div>
+                                    {% endif %}
+
+                                    {% if image.description %}
+                                        <div class="col-12 mt-2">
+                                            <p>{{ image.description }}</p>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

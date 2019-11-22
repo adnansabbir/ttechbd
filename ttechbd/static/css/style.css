@@ -1512,3 +1512,26 @@ h1, h2, h3, h4, h5,
   .post-meta a {
     color: #fff;
     border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
+
+
+  .album-thumbnail {
+    height: 200px;
+    width: 300px;
+    background-repeat: no-repeat;
+    background-size: 400px;
+    background-position: center;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: flex-end;
+}
+
+.album-thumbnail .album-name {
+    width: 100%;
+    text-align: center;
+    background: #000000a8;
+    color: white;
+    font-size: 2em;
+    text-transform: uppercase;
+}
