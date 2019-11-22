@@ -43,6 +43,7 @@ class ProjectImage(models.Model):
     image = models.ImageField(upload_to='Projects/ExtraImages/')
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=255)
+    visibility = models.BooleanField(default=True)
 
     def __str__(self):
         return self.title
